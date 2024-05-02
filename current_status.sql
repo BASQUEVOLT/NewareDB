@@ -10,9 +10,10 @@ FROM `testlab-db`.channel_status cs
 WHERE btsSysState LIKE 'running';
 
 CREATE TABLE `dev-db`.current_status AS
-SELECT xl.Vicarli_system_ID, xl.Cathode_type, xl.Cathode_material, xl.Anode_Type, xl.Electrolyte_Gen, xl.Number_Cathode_Layers, xl.Cathode_Area, Active_mass Rated_Capacity, cycle_id, specific_chg_capa, specific_dchg_capa, ce, rte, Net_eng_dchg, soh
+SELECT DISTINCT xl.Vicarli_system_ID, CONVERT(cycle_id, UNSIGNED) AS cycle_id, specific_dchg_capa, soh, ce, xl.Cathode_type, xl.Cathode_material, xl.Anode_Type, xl.Electrolyte_Gen, xl.Number_Cathode_Layers, xl.Cathode_Area, Active_mass Rated_Capacity, specific_chg_capa, rte, Net_eng_dchg
 FROM `dev-db`.running r
 JOIN `dev-db`.CellXL xl ON r.packBarCode = xl.Vicarli_system_ID
 JOIN `dev-db`.cycle_data cd ON r.packBarCode = cd.barcode
+JOIN `dev-db`.max_cycles mc ON mc.max_cycle = cd.cycle_id AND mc.barcode = r.packBarCode
 
 
