@@ -1,19 +1,37 @@
 #coin cells BQV
-SELECT test_id, chl_id, Builder, StartTime, EndTime, barcode, Remark, Active_material FROM `testlab-db`.schedule
-WHERE barcode LIKE 'RDCC%';
+CREATE TABLE `dev-db`.ids AS 
+
+SELECT DISTINCT barcode, Remark, test_id, chl_id, Builder, StartTime, EndTime, Active_material, 'Coin' AS ID FROM `testlab-db`.schedule
+WHERE barcode LIKE 'RDCC%'
+
+UNION ALL
 
 #old pouch cells BQV
-SELECT test_id, chl_id, Builder, StartTime, EndTime, barcode, Remark, Active_material FROM `testlab-db`.schedule
-WHERE barcode LIKE 'RDML%';
+SELECT DISTINCT barcode, Remark, test_id, chl_id, Builder, StartTime, EndTime, Active_material, '1003Old' AS ID FROM `testlab-db`.schedule
+WHERE barcode LIKE 'RDML%'
+
+UNION ALL
 
 #pouch cells BQV in Vicarli
-SELECT test_id, chl_id, Builder, StartTime, EndTime, barcode, Remark, Active_material FROM `testlab-db`.schedule
-WHERE barcode LIKE 'BQV%' or barcode LIKE '1003-%';
+SELECT DISTINCT barcode, Remark, test_id, chl_id, Builder, StartTime, EndTime, Active_material, '1003' AS ID FROM `testlab-db`.schedule
+WHERE barcode LIKE 'BQV%' or barcode LIKE '1003-%'
+
+UNION ALL
 
 #pouch cells CIC
-SELECT test_id, chl_id, Builder, StartTime, EndTime, barcode, Remark, Active_material FROM `testlab-db`.schedule
-WHERE barcode LIKE 'CIC%' or barcode LIKE 'NMC%' or barcode LIKE 'WW%' or barcode LIKE 'GLIL%';
+SELECT DISTINCT barcode, Remark, test_id, chl_id, Builder, StartTime, EndTime, Active_material, '1003CIC' AS ID FROM `testlab-db`.schedule
+WHERE barcode LIKE 'CIC%' or barcode LIKE 'NMC%' or barcode LIKE 'WW%' or barcode LIKE 'GLIL%'
+
+UNION ALL
 
 #pouch cells BQV 20Ah
-SELECT test_id, chl_id, Builder, StartTime, EndTime, barcode, Remark, Active_material FROM `testlab-db`.schedule
-WHERE barcode LIKE '1610-%';
+SELECT DISTINCT barcode, Remark, test_id, chl_id, Builder, StartTime, EndTime, Active_material, '1610' AS ID FROM `testlab-db`.schedule
+WHERE barcode LIKE '1610-%'
+
+UNION ALL
+
+#pouch cells BQV 5Ah
+SELECT DISTINCT barcode, Remark, test_id, chl_id, Builder, StartTime, EndTime, Active_material, '1004' AS ID FROM `testlab-db`.schedule
+WHERE barcode LIKE '1004-%';
+
+SELECT * FROM `dev-db`.ids;
