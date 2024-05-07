@@ -1,4 +1,5 @@
-CREATE TABLE `dev-db`.max_cycles AS
+#CREATE TABLE `dev-db`.max_cycles AS
+CREATE VIEW `dev-db`.max_cycles AS
 SELECT 
 	barcode,
     test_id,
