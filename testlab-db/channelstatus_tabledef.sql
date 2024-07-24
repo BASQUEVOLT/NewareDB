@@ -1,0 +1,51 @@
+CREATE TABLE `testlab-db`.channel_status_casted (
+	computer_name VARCHAR(20) DEFAULT NULL COMMENT 'length 20',
+	equipt_code INT UNSIGNED NOT NULL DEFAULT 0, 
+	channel_no INT UNSIGNED NOT NULL DEFAULT 0, 
+	channel_code INT UNSIGNED NOT NULL DEFAULT 0,
+	#localIP VARCHAR(255),
+	pc_name VARCHAR(20) DEFAULT NULL COMMENT 'length 20', 
+	barcode VARCHAR(60) NOT NULL DEFAULT '' COMMENT 'length 60', 
+	#systemStatus VARCHAR(255), 
+	#solutionName VARCHAR(255), 
+	#projectName VARCHAR(255), 
+	#projectNO VARCHAR(255), 
+	step_id INT UNSIGNED DEFAULT NULL, 
+	#cycleGroupNO varchar(255),
+	cycle_id INT UNSIGNED DEFAULT NULL, 
+	step_duration BIGINT UNSIGNED DEFAULT NULL COMMENT 'unit ms', 
+	total_duration BIGINT UNSIGNED DEFAULT NULL COMMENT 'unit ms', 
+	btsSysState VARCHAR(20) DEFAULT NULL COMMENT 'length 20', 
+	#btsRunMode VARCHAR(255) 
+	#btsControlMode VARCHAR(255)  
+	voltage DOUBLE DEFAULT NULL COMMENT 'unit V', 
+	current DOUBLE DEFAULT NULL COMMENT 'unit A',
+	power DOUBLE DEFAULT NULL COMMENT 'unit W',
+	step_capacity DOUBLE DEFAULT NULL COMMENT 'unit Ah',
+	total_capacity DOUBLE DEFAULT NULL COMMENT 'unit Ah', 
+	step_energy DOUBLE DEFAULT NULL COMMENT 'unit Wh',
+	total_energy DOUBLE DEFAULT NULL COMMENT 'unit Wh',
+	total_charge_capacity DOUBLE DEFAULT NULL COMMENT 'unit Ah',
+	total_discharge_capacity DOUBLE DEFAULT NULL COMMENT 'unit Ah',
+	total_charge_energy DOUBLE DEFAULT NULL COMMENT 'unit Wh',
+	total_discharge_energy DOUBLE DEFAULT NULL COMMENT 'unit Wh',
+	voltage_setting DOUBLE DEFAULT NULL COMMENT 'unit V',
+	current_setting DOUBLE DEFAULT NULL COMMENT 'unit A',
+	max_single_voltage DOUBLE DEFAULT NULL COMMENT 'unit V',
+	min_single_voltage DOUBLE DEFAULT NULL COMMENT 'unit V',
+	max_single_temperature DOUBLE DEFAULT NULL COMMENT 'unit ºC', 
+	min_single_temperature DOUBLE DEFAULT NULL COMMENT 'unit ºC', 
+	transmit_time BIGINT UNSIGNED DEFAULT NULL COMMENT 'unit unix timestamp', 
+	single_voltage DOUBLE DEFAULT NULL COMMENT 'unit V',
+	single_temperature DOUBLE DEFAULT NULL COMMENT 'unit ºC',
+	#laboratory varchar(255) 
+	#area varchar(255) 
+	#supplier varchar(255)  
+	delta_temperature DOUBLE DEFAULT NULL COMMENT 'unit ºC',
+	step_name VARCHAR(20) DEFAULT NULL COMMENT 'length 20', 
+	device_IP VARCHAR(20) DEFAULT NULL COMMENT 'length 20',
+	upload_time BIGINT UNSIGNED DEFAULT NULL COMMENT 'unit unix timestamp', 
+	end_time BIGINT DEFAULT NULL,
+    PRIMARY KEY (barcode, equipt_code, channel_no, channel_code)
+    -- SET THE DEFAULT VALUES, UNIQUE AND NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

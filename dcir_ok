@@ -1,0 +1,75 @@
+-- DCIR @ X s.
+input: barcode
+
+-- DCIR IN DISCHARGE
+select
+  r.barcode,
+  s.cycle_id,
+  (convert(replace(r.voltage, ',', '.'), double) - convert(replace(s.end_voltage, ',', '.'), double)) / convert(replace(r.current, ',', '.'), double) as dcir
+from
+  `testlab-db`.`step` s
+  join `testlab-db`.`record` r 
+	on r.barcode = s.barcode
+    and r.test_id = s.test_id
+    and s.step_num = r.step_num - 1
+    #and s.cycle_id = r.cycle_id
+where
+  r.barcode = barcode
+  and r.step_type = 'cc_dchg'
+  and r.test_id in (
+    select
+      distinct test_id
+    from
+      `testlab-db`.schedule
+    where barcode = barcode
+		and builder = 'CY'
+  )
+  and convert(replace(r.record_time, ',', '.'), double) = X ;
+  
+  -- DCIR IN CHARGE
+select
+  r.barcode,
+  s.cycle_id,
+  (convert(replace(r.voltage, ',', '.'), double) - convert(replace(s.end_voltage, ',', '.'), double)) / convert(replace(r.current, ',', '.'), double) as dcir
+from
+  `testlab-db`.`step` s
+  join `testlab-db`.`record` r on r.barcode = s.barcode
+    and r.test_id = s.test_id
+    and s.step_num = r.step_num - 1
+    and s.cycle_id = r.cycle_id - 1
+where
+  r.barcode = barcode 
+  and r.step_type = 'cc_chg'
+  and r.test_id in (
+    select
+      distinct test_id
+    from
+      `testlab-db`.schedule
+    where barcode = barcode 
+		and builder = 'CY'
+  )
+  and convert(replace(r.record_time, ',', '.'), double) = X ;
+  
+-- DCIR IN CHARGE RPT
+select
+  r.barcode,
+  s.cycle_id,
+  (convert(replace(r.voltage, ',', '.'), double) - convert(replace(s.end_voltage, ',', '.'), double)) / convert(replace(r.current, ',', '.'), double) as dcir
+from
+  `testlab-db`.`step` s
+  join `testlab-db`.`record` r on r.barcode = s.barcode
+    and r.test_id = s.test_id
+    and s.step_num = r.step_num - 1
+    and s.cycle_id = r.cycle_id
+where
+  r.barcode = barcode 
+  and r.step_type = 'cc_chg'
+  and r.test_id in (
+    select
+      distinct test_id
+    from
+      `testlab-db`.schedule
+    where barcode = barcode 
+		and builder = 'CY'
+  )
+  and convert(replace(r.record_time, ',', '.'), double) = X ;

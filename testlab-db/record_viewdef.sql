@@ -1,0 +1,31 @@
+CREATE VIEW `testlab-db`.record2 AS
+SELECT
+	CONVERT(r.test_id, UNSIGNED) AS test_id,
+	CONVERT(seq_id, UNSIGNED) AS seq_id,
+	LEFT(computer_name, 20) AS computer_name,
+	LEFT(r.chl_id, 20) AS chl_id,
+	LEFT(i.barcode_corrected, 60) AS barcode,
+	CONVERT(cycle_id, UNSIGNED) AS cycle_id,
+	CONVERT(step_num, UNSIGNED) AS step_num, 
+	CONVERT(step_id, UNSIGNED) AS step_id, 
+	CONVERT(record_id, UNSIGNED) AS record_id, 
+	LEFT(step_type, 20) AS step_type,
+	CONVERT(REPLACE(record_time, ',', '.'), DOUBLE) AS record_time,
+	CONVERT(REPLACE(voltage, ',', '.'), DOUBLE) AS voltage, 
+	CONVERT(REPLACE(current, ',', '.'), DOUBLE) AS current, 
+	CONVERT(REPLACE(capacity, ',', '.'), DOUBLE) AS capacity, 
+	CONVERT(REPLACE(energy, ',', '.'), DOUBLE) AS energy, 
+	CONVERT(REPLACE(power, ',', '.'), DOUBLE) AS power, 
+	CONVERT(REPLACE(absolutw_time, ',', '.'), DOUBLE) AS absolutw_time, 
+	temperature, 
+	LEFT(batch_no, 25) AS batch_no,
+	LEFT(r.remark, 60) AS remark,
+	CONVERT(REPLACE(total_time, ',', '.'), DOUBLE) AS total_time,
+	CONVERT(REPLACE(active_material, ',', '.'), DOUBLE) AS active_material,
+	LEFT(r.builder, 25) AS builder,
+	LEFT(r.active_material_unit, 10) AS active_material_unit,
+	customize_settings,
+	customize_settings_2,
+	equipment_remarks
+FROM `testlab-db`.record r
+JOIN `testlab-db`.ids i ON i.barcode = r.barcode and i.test_id = r.test_id
