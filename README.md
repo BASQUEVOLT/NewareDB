@@ -1,5 +1,8 @@
 # NewareDB
  Minimal documentation and list of queries
+ database structure:
+ ![Alt text](https://github.com/BASQUEVOLT/NewareDB/tree/main/images/neware_db_structure.png)
+
  
 ## Folder testlab-db
  MySQL scripts to define the casted tables and the triggers
