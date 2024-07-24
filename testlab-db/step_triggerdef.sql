@@ -30,7 +30,16 @@ BEGIN
         remark,
         step_file_name,
         starting_time,
-		end_time
+		end_time,
+		builder,
+		active_material,
+		start_current,
+		end_current,
+		capacity,
+		energy,
+		first_current,
+		first_voltage,
+		nominal_capacity
         ) 
 	SELECT
 		CONVERT(s.test_id, UNSIGNED) AS test_id,
@@ -58,9 +67,18 @@ BEGIN
 		CONVERT(REPLACE(end_temp, ',', '.'), DOUBLE) AS end_temp,
 		LEFT(batch_no, 25) AS batch_no, 
 		LEFT(s.remark, 60) AS remark,
-		step_file_name,
+		LEFT(s.step_file_name, 150) AS step_file_name ,
 		LEFT(s.starting_time, 25) AS starting_time, #correct name
 		LEFT(s.end_time, 25) AS end_time #correct name
+		LEFT(s.builder, 25) AS builder, 
+		CONVERT(REPLACE(active_material, ',', '.'), DOUBLE) AS active_material,
+		CONVERT(REPLACE(start_current, ',', '.'), DOUBLE) AS start_current,
+		CONVERT(REPLACE(end_current, ',', '.'), DOUBLE) AS end_current,
+		CONVERT(REPLACE(capacity, ',', '.'), DOUBLE) AS capacity,
+		CONVERT(REPLACE(energy, ',', '.'), DOUBLE) AS energy,
+		CONVERT(REPLACE(first_current, ',', '.'), DOUBLE) AS first_current,
+		CONVERT(REPLACE(first_voltage, ',', '.'), DOUBLE) AS first_voltage,
+		CONVERT(REPLACE(nominal_capacity, ',', '.'), DOUBLE) AS nominal_capacity
 	FROM `testlab-db`.step s
 	JOIN `testlab-db`.ids i ON i.barcode = LEFT(s.barcode, 60) AND i.test_id = CONVERT(s.test_id, UNSIGNED);
 END;

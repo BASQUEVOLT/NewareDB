@@ -67,18 +67,18 @@ BEGIN
 		CONVERT(REPLACE(power, ',', '.'), DOUBLE) AS power, 
 		CONVERT(REPLACE(IR, ',', '.'), DOUBLE) AS IR,
 		CONVERT(REPLACE(capacity, ',', '.'), DOUBLE) AS capacity, 
-		recording_conditions,
-		aux_record_conditions, 
+		LEFT(s.recording_conditions, 100) AS recording_conditions ,
+		LEFT(s.aux_record_conditions, 100) AS aux_record_conditions , 
 		CONVERT(REPLACE(MaxVi, ',', '.'), DOUBLE) AS MaxVi, 
 		CONVERT(REPLACE(MinVi, ',', '.'), DOUBLE) AS MinVi,
 		CONVERT(REPLACE(MaxTi, ',', '.'), DOUBLE) AS MaxTi, 
 		CONVERT(REPLACE(MinTi, ',', '.'), DOUBLE) AS MinTi,  
-		record1, 
-		record2,  
+		LEFT(s.record1, 100) AS record1, 
+		LEFT(s.record2, 100) AS record2,  
 		UNIX_TIMESTAMP(s.starting_time) AS starting_time,
 		UNIX_TIMESTAMP(s.end_time) AS end_time,
 		LEFT(s.remark, 60) AS remark,
-		dev_remark,
+		LEFT(s.equipment_remarks, 100) AS equipment_remarks,
 		LEFT(s.builder, 25) AS builder,
 		CONVERT(REPLACE(s.active_material, ',', '.'), DOUBLE) AS active_material,
 		LEFT(P, 25) AS P,
@@ -86,8 +86,8 @@ BEGIN
 		CONVERT(start_step_ID, UNSIGNED) AS start_step_ID,
 		CONVERT(cycle_count, UNSIGNED) AS cycle_count,
 		UNIX_TIMESTAMP(upload_time) AS upload_time,
-		customize_setting,
-		customize_setting_2
+		LEFT(s.customize_setting, 100) AS customize_setting,
+		LEFT(s.customize_setting_2, 100) AS customize_setting_2
 	FROM `testlab-db`.`schedule` s
 	JOIN `testlab-db`.`ids` i ON i.barcode = LEFT(s.barcode, 60) AND i.test_id = CONVERT(s.test_id, UNSIGNED);
 END;
