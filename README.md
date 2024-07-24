@@ -1,6 +1,6 @@
-#Neware Database Documentation
+# Neware Database Documentation
 Minimal documentation and list of queries 
-##Database structure
+## Database structure
 ![alt text](./images/neware_db_structure.png)
 
 ## List of variables and types
@@ -218,11 +218,11 @@ Minimal documentation and list of queries
 
 
 
-##Folder testlab-db
+## Folder testlab-db
 MySQL scripts to define the casted tables and the triggers
 
-##Folder vmp
+## Folder vmp
 Python script to open a measurement file and create a pandas dataframe with the structure of a database table It includes some exception handling for ill formatted filenames
 
-##Folder qualification
+## Folder qualification
 MySQL queries to fetch the result of the qualification protocols
