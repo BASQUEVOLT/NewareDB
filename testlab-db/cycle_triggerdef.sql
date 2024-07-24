@@ -30,7 +30,7 @@ BEGIN
         end_time,
         builder,
         active_material, 
-		active_material_unit,
+		#active_material_unit,
         dicharge_capacity_attenuation_rate,
         discharge_energy_retention_rate, 
         charge_discharge_efficiency
@@ -61,7 +61,7 @@ BEGIN
 		UNIX_TIMESTAMP(c.end_time) AS end_time,
 		LEFT(c.builder, 25) AS builder,
 		CONVERT(REPLACE(c.active_material, ',', '.'), DOUBLE) AS active_material, 
-		LEFT(active_material_unit, 10) AS active_material_unit,
+		#LEFT(active_material_unit, 10) AS active_material_unit,
 		CONVERT(REPLACE(dicharge_capacity_attenuation_rate, ',', '.'), DOUBLE) AS dicharge_capacity_attenuation_rate, 
 		CONVERT(REPLACE(discharge_energy_retention_rate, ',', '.'), DOUBLE) AS discharge_energy_retention_rate, 
 		CONVERT(REPLACE(charge_discharge_efficiency, ',', '.'), DOUBLE) AS charge_discharge_efficiency

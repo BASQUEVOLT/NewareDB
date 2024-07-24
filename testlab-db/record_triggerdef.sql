@@ -28,7 +28,7 @@ BEGIN
         total_time,
         active_material,
         builder,
-        active_material_unit,
+        #active_material_unit,
         customize_settings,
         customize_settings_2,
         equipment_remarks
@@ -57,7 +57,7 @@ BEGIN
 		CONVERT(REPLACE(total_time, ',', '.'), UNSIGNED) AS total_time,
 		CONVERT(REPLACE(active_material, ',', '.'), DOUBLE) AS active_material,
 		LEFT(r.builder, 25) AS builder,
-		LEFT(r.active_material_unit, 10) AS active_material_unit,
+		#LEFT(r.active_material_unit, 10) AS active_material_unit,
 		customize_settings,
 		customize_settings_2,
 		LEFT(r.equipment_remarks, 100) AS equipment_remarks 

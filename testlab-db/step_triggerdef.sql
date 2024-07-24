@@ -14,7 +14,7 @@ BEGIN
         step_num,
         step_id,
         step_type, 
-        step_duration_ms,
+        step_duration,
         charge_energy,
         discharge_energy,
         charge_capacity,
@@ -51,7 +51,7 @@ BEGIN
 		CONVERT(step_num, UNSIGNED) AS step_num,
 		CONVERT(step_id, UNSIGNED) AS step_id,
 		LEFT(step_type, 15) AS step_type, 
-		CONVERT(REPLACE(step_duration_ms,',', '.'), DOUBLE) AS step_duration_ms,
+		CONVERT(REPLACE(step_duration,',', '.'), DOUBLE) AS step_duration,
 		CONVERT(REPLACE(charge_energy, ',', '.'), DOUBLE) AS charge_energy,
 		CONVERT(REPLACE(discharge_energy, ',', '.'), DOUBLE) AS discharge_energy,
 		#chg_mid_voltage varchar(255) 

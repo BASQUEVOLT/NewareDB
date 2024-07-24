@@ -8,7 +8,7 @@ CREATE TABLE `testlab-db`.step_casted (
 	step_num INT UNSIGNED DEFAULT NULL,
 	step_id INT UNSIGNED DEFAULT NULL,
 	step_type VARCHAR(15) DEFAULT NULL COMMENT 'length 15', 
-	step_time BIGINT UNSIGNED DEFAULT NULL,
+	step_duration BIGINT UNSIGNED DEFAULT NULL,
 	charge_energy DOUBLE DEFAULT NULL COMMENT 'unit Wh',
 	discharge_energy DOUBLE DEFAULT NULL COMMENT 'unit Wh',
 	#chg_mid_voltage varchar(255) 
