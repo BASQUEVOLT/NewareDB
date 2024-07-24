@@ -1,7 +1,7 @@
 # NewareDB
  Minimal documentation and list of queries
  database structure:
- ![plot](https://github.com/BASQUEVOLT/NewareDB/tree/main/images/neware_db_structure.png)
+ ![screenshot](https://github.com/BASQUEVOLT/NewareDB/tree/main/images/neware_db_structure.png)
 
  
 ## Folder testlab-db
