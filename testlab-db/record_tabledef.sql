@@ -25,6 +25,6 @@ CREATE TABLE `testlab-db`.record_casted (
 	active_material_unit VARCHAR(10) DEFAULT NULL,
 	customize_settings VARCHAR(255) DEFAULT NULL,
 	customize_settings_2 VARCHAR(255) DEFAULT NULL,
-	equipment_remarks VARCHAR(255) DEFAULT NULL,
+	equipment_remarks VARCHAR(100) DEFAULT NULL,
 	PRIMARY KEY (test_id, barcode)
 );

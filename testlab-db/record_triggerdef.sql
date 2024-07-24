@@ -60,7 +60,7 @@ BEGIN
 		LEFT(r.active_material_unit, 10) AS active_material_unit,
 		customize_settings,
 		customize_settings_2,
-		equipment_remarks
+		LEFT(r.equipment_remarks, 100) AS equipment_remarks 
 	FROM `testlab-db`.record r
 	JOIN `testlab-db`.ids i ON i.barcode = LEFT(r.barcode, 60) and i.test_id = CONVERT(r.test_id, UNSIGNED)
 END;
