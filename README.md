@@ -226,3 +226,6 @@ Python script to open a measurement file and create a pandas dataframe with the 
 
 ## Folder qualification
 MySQL queries to fetch the result of the qualification protocols
+
+## Folder calculation_neware_db
+MySQL queries to create views with calculation of quantities like DCIR, dQ/dV, step durations, step capacities and step end voltages
