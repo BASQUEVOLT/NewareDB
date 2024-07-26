@@ -40,17 +40,17 @@ The database is composed by the following tables:
 
 Each table resumes the performed test on a different aggregation level:  
 
-** Channel status ** table describes the current status of all the available channels, the rows of this table are fixed to the number of channels.  
+**Channel status** table describes the current status of all the available channels, the rows of this table are fixed to the number of channels.  
 
-** Cycle ** table is the highest aggregation level, it describes the parameters of the test for each cycle, which is defined by the steps from the first charge step to the last discharge step (from 2 to 6 in the example). Example: the charged capacity will be the sum of the charged capacity of the step 2 and 3, the cycle duration is the sum of the duration of the step from 2 to 6, etc.. 
+**Cycle** table is the highest aggregation level, it describes the parameters of the test for each cycle, which is defined by the steps from the first charge step to the last discharge step (from 2 to 6 in the example). Example: the charged capacity will be the sum of the charged capacity of the step 2 and 3, the cycle duration is the sum of the duration of the step from 2 to 6, etc.. 
 
-** Step ** table describes the parameters of the test for each step (the steps from 1 to 6 in the example). Example: there will be the duration of each step, the charged capacity for the CC and the charged capacity for the CV phase, etc.. 
+**Step** table describes the parameters of the test for each step (the steps from 1 to 6 in the example). Example: there will be the duration of each step, the charged capacity for the CC and the charged capacity for the CV phase, etc.. 
 
-** Record ** table is the lowest aggregation level and it can be very big, it contains all the datapoints of the test. Example if the sampling rate is 1Hz (1 point every second) only the step 1 of the Example protocol will produce 36000 rows! The least amount of parameter to measure are voltage, current, capacity, energy and power, so the corresponding table for the step 1 will contain 36000x5=180000 elements!! 
+**Record** table is the lowest aggregation level and it can be very big, it contains all the datapoints of the test. Example if the sampling rate is 1Hz (1 point every second) only the step 1 of the Example protocol will produce 36000 rows! The least amount of parameter to measure are voltage, current, capacity, energy and power, so the corresponding table for the step 1 will contain 36000x5=180000 elements!! 
 
-** Schedule ** table resumes the protocol executed in each test. 
+**Schedule** table resumes the protocol executed in each test. 
 
-** Log ** table describes the logs of each test. 
+**Log** table describes the logs of each test. 
 
 ## List of variables and types
 |     | Table          | Select   | Parameter                               | Unit           |   Decimal point | Type of data   | Length string   | Field name                         | Default value   | Primary Key   | new name                 |
