@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `log` (
-`test_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Test ID',
-`seq_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'DataPoint',
+`test_id` INT UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Test ID',
+`seq_id` INT UNSIGNED NOT NULL DEFAULT '0' COMMENT 'DataPoint',
 `computer_name` varchar(255) NOT NULL DEFAULT '' COMMENT '',
 `chl_id` varchar(255) NOT NULL DEFAULT '' COMMENT 'CH ID',
 `log_time` varchar(255) DEFAULT NULL COMMENT 'Time',

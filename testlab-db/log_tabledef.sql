@@ -1,13 +1,13 @@
 CREATE TABLE `testlab-db`.log_casted (
 	test_id INT UNSIGNED NOT NULL DEFAULT 0, 
-	seq_id INT UNSIGNED DEFAULT NULL,
+	seq_id INT UNSIGNED NOT NULL DEFAULT 0,
 	computer_name VARCHAR(20) DEFAULT NULL COMMENT 'length 20',
 	chl_id VARCHAR(20) DEFAULT NULL COMMENT 'length 20', 
 	barcode VARCHAR(60) NOT NULL DEFAULT '' COMMENT 'length 60', 
 	log_time BIGINT UNSIGNED DEFAULT NULL, 
-	log_code VARCHAR(25) DEFAULT NULL COMMENT 'length 25', 
+	log_code INT DEFAULT NULL, 
 	log_level VARCHAR(5) DEFAULT NULL COMMENT 'length 5',
 	log_event VARCHAR(200) DEFAULT NULL COMMENT 'length 200',
 	upload_time BIGINT UNSIGNED DEFAULT NULL, 
-    PRIMARY KEY (test_id, barcode, log_time)
+    PRIMARY KEY (test_id, seq_id, barcode)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8

@@ -24,7 +24,7 @@ Example of a protocol:
 
 7. repeat from step 2 for 999 times 
 
-The database is composed by the following tables: 
+The database is composed by the following landing tables: 
 
 * channel_status 
 

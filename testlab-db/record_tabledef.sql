@@ -27,4 +27,4 @@ CREATE TABLE `testlab-db`.record_casted (
 	customize_settings_2 VARCHAR(255) DEFAULT NULL COMMENT 'length 255',
 	equipment_remarks VARCHAR(100) DEFAULT NULL COMMENT 'length 100',
 	PRIMARY KEY (test_id, barcode)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

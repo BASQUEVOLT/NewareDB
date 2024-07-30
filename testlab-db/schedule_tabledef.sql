@@ -1,4 +1,4 @@
-CREATE TABLE `testlab-db`.schedule_casted (
+CREATE TABLE `land_neware`.schedule_casted (
 	test_id INT UNSIGNED NOT NULL DEFAULT 0,
 	seq_id INT UNSIGNED DEFAULT NULL,
 	computer_name VARCHAR(20) DEFAULT NULL COMMENT 'length 20', 
@@ -39,4 +39,4 @@ CREATE TABLE `testlab-db`.schedule_casted (
 	customize_setting VARCHAR(100) DEFAULT NULL COMMENT 'length 100',
 	customize_setting_2 VARCHAR(100) DEFAULT NULL COMMENT 'length 100',
 	PRIMARY KEY (test_id, barcode)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4

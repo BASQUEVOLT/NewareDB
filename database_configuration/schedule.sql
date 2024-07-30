@@ -1,6 +1,6 @@
-CREATE TABLE IF NOT EXISTS `schedule` (
-`test_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Test ID',
-`seq_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'DataPoint',
+CREATE TABLE IF NOT EXISTS `land_neware`.`schedule` (
+`test_id` INT UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Test ID',
+`seq_id` INT UNSIGNED NOT NULL DEFAULT '0' COMMENT 'DataPoint',
 `computer_name` varchar(255) NOT NULL DEFAULT '' COMMENT '',
 `chl_id` varchar(255) NOT NULL DEFAULT '' COMMENT 'CH ID',
 `barcode` varchar(255) DEFAULT NULL COMMENT 'Cell bar code',
@@ -39,4 +39,4 @@ CREATE TABLE IF NOT EXISTS `schedule` (
 `customize_setting_2` varchar(255) DEFAULT NULL COMMENT 'Customize settings2',
 `equipment_remarks` varchar(255) DEFAULT NULL COMMENT 'Equipment remarks',
 PRIMARY KEY ( `test_id`,`seq_id`,`computer_name`,`chl_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4

@@ -23,7 +23,7 @@ BEGIN
 		LEFT(l.chl_id, 20) AS chl_id, 
 		LEFT(i.barcode_corrected, 60) AS barcode, 
 		UNIX_TIMESTAMP(log_time) AS log_time, 
-		LEFT(log_code, 25) AS log_code,
+		CONV(SUBSTRING(log_code, 3), 16,10) AS log_code,
 		LEFT(log_level, 5) AS log_level,
 		LEFT(log_event, 200) AS log_event,
 		UNIX_TIMESTAMP(upload_time) AS upload_time

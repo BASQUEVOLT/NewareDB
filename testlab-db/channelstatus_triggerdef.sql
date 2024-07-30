@@ -29,13 +29,13 @@ BEGIN
         total_discharge_energy,
         voltage_setting,
         current_setting,
-        max_single_voltage,
-        min_single_voltage,
-        max_single_temperature,
-        min_single_temperature, 
+        max_aux_voltage,
+        min_aux_voltage,
+        max_aux_temperature,
+        min_aux_temperature, 
         transmit_time,
-        single_voltage,
-        single_temperature,
+        aux_voltage,
+        aux_temperature,
         delta_temperature,
         step_name,
         device_IP,
@@ -73,13 +73,13 @@ BEGIN
 		CONVERT(REPLACE(total_discharge_energy, ',', '.'), DOUBLE) AS total_discharge_energy,
 		CONVERT(REPLACE(voltage_setting , ',', '.'), DOUBLE) AS voltage_setting,
 		CONVERT(REPLACE(current_setting , ',', '.'), DOUBLE) AS current_setting,
-		CONVERT(REPLACE(max_single_voltage , ',', '.'), DOUBLE) AS max_single_voltage,
-		CONVERT(REPLACE(min_single_voltage , ',', '.'), DOUBLE) AS min_single_voltage, 
-		CONVERT(REPLACE(max_single_temperature , ',', '.'), DOUBLE) AS max_single_temperature, 
-		CONVERT(REPLACE(min_single_temperature , ',', '.'), DOUBLE) AS min_single_temperature,  
+		CONVERT(REPLACE(max_single_voltage , ',', '.'), DOUBLE) AS max_aux_voltage,
+		CONVERT(REPLACE(min_single_voltage , ',', '.'), DOUBLE) AS min_aux_voltage, 
+		CONVERT(REPLACE(max_single_temperature , ',', '.'), DOUBLE) AS max_aux_temperature, 
+		CONVERT(REPLACE(min_single_temperature , ',', '.'), DOUBLE) AS min_aux_temperature,  
 		UNIX_TIMESTAMP(transmit_time) AS transmit_time,
-		CONVERT(REPLACE(single_voltage , ',', '.'), DOUBLE) AS single_voltage,
-		CONVERT(REPLACE(single_temperature , ',', '.'), DOUBLE) AS single_temperature,
+		CONVERT(REPLACE(single_voltage , ',', '.'), DOUBLE) AS aux_voltage,
+		CONVERT(REPLACE(single_temperature , ',', '.'), DOUBLE) AS aux_temperature,
 		CONVERT(REPLACE(delta_temperature , ',', '.'), DOUBLE) AS delta_temperature,
 		LEFT(step_name, 20) AS step_name,
 		LEFT(device_IP, 20) AS device_IP,
@@ -89,7 +89,7 @@ BEGIN
 		(SUBSTRING_INDEX(SUBSTRING_INDEX(end_time, ':', -2), ':', 1) * 60000) +  -- Convert minutes to milliseconds
 		(SUBSTRING_INDEX(end_time, ':', -1) * 1000) AS end_time,  -- Convert seconds to milliseconds
 	FROM `testlab-db`.channel_status cs
-	JOIN `testlab-db`.ids i ON i.barcode = LEFT(cs.barcode, 60);
+	JOIN `testlab-db`.ids i ON i.barcode = LEFT(cs.packBarCode, 60);
 END;
 //
 

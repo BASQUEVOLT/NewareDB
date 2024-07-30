@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `channel_status` (
 `channel_no` varchar(255) NOT NULL DEFAULT '' COMMENT 'Unit ID',
 `channel_code` varchar(255) NOT NULL DEFAULT '' COMMENT 'CH ID',
 `pc_name` varchar(255) DEFAULT NULL COMMENT 'Computer name',
-`barcode` varchar(255) DEFAULT NULL COMMENT 'Barcode',
+`packBarCode` varchar(255) DEFAULT NULL COMMENT 'Barcode',
 `step_id` varchar(255) DEFAULT NULL COMMENT 'Step Index',
 `cycle_id` varchar(255) DEFAULT NULL COMMENT 'Cycle count',
 `step_duration` varchar(255) DEFAULT NULL COMMENT 'Step Time',

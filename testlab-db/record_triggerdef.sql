@@ -1,10 +1,10 @@
 DELIMITER //
 
-CREATE TRIGGER `testlab-db`.record_trigger 
-AFTER INSERT ON `testlab-db`.record
+CREATE TRIGGER `dev-db`.record_trigger 
+AFTER INSERT ON `dev-db`.record
 FOR EACH ROW
 BEGIN   
-    INSERT INTO `testlab-db`.record_casted (
+    INSERT INTO `dev-db`.record_casted (
 		test_id,
         seq_id,
         computer_name,
@@ -62,7 +62,7 @@ BEGIN
 		customize_settings_2,
 		LEFT(r.equipment_remarks, 100) AS equipment_remarks 
 	FROM `testlab-db`.record r
-	JOIN `testlab-db`.ids i ON i.barcode = LEFT(r.barcode, 60) and i.test_id = CONVERT(r.test_id, UNSIGNED)
+	JOIN `testlab-db`.ids i ON i.barcode = LEFT(r.barcode, 60) and i.test_id = CONVERT(r.test_id, UNSIGNED);
 END;
 //
 
