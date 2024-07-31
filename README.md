@@ -1,5 +1,6 @@
 # Neware Database Documentation
 Minimal documentation and list of queries 
+**NB: current version of the Neware Report Exportation Software = V1.0.0.4_20240123_64**
 
 ## Database structure
 ![alt text](./images/neware_db_structure.png)
